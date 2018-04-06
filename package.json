@@ -1,0 +1,28 @@
+{
+  "name": "ticker",
+  "version": "1.0.0",
+  "description": "Real Time Ticker ",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Rohit",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.0.0",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "method-override": "^2.3.10",
+    "request": "^2.85.0",
+    "socket.io": "^2.1.0",
+    "socket.io-client": "^2.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.2.1"
+  }
+}

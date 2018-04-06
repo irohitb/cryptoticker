@@ -1,0 +1,306 @@
+<% include partials/header %>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js">
+</script>
+</head>
+
+
+<body>
+
+<!--- Navbar --->
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+    <img src="/images/123.png" width="30" height="30" class="d-inline-block align-top" alt=""> <span class="if"> Knicx </span>
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-sm btn-info c1">Sign Up</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-sm btn-success c1">Login</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--- Global Data --->
+<div class="d-none d-md-block">
+  <div class="global-class">
+    <div class="container">
+      <div class="row">
+        <p class="global-class-p"><span class="gmarketcap">Global Crypto Marketcap: </span>$<strong><%= globalDP %>B</strong></p>
+        <p class="global-class-p"><span class="gmarketcap">Bitcoin Domminance: </span><strong><%= globalD["bitcoin_percentage_of_market_cap"] %>%</strong></p>
+        <p class="global-class-p"><span class="gmarketcap"> </span>24 Hour Volume: <strong><%= v24  %>B</strong></p>
+        <p class="global-class-p"><span class="gmarketcap">Active Currencies: </span><strong><%= globalD["active_currencies"] %>%</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--- Heading Large Screen -->
+<div class="headerbackground">
+  <div class="container">
+    <div class="d-none d-md-block d-md-12">
+      <h1 class="text-center cushl1">Cryptocurrency Market Capitalizations</h1>
+    </div>
+  </div>
+</div>
+
+<!--- Heading Small Screen -->
+<div class="headerbackground">
+  <div class="container">
+    <div class="d-sm-block d-md-none">
+      <h1 class="text-center cushs1">Cryptocurrency Market Capitalizations</h1>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row lan">
+    <div class="d-none d-md-block col-md-4">
+      <div class="container">
+      <div class="row">
+      <p class="c1">  Connect With Us </p>
+      <i class="fa fa-telegram ci" aria-hidden="true"></i>
+      <i class="fa fa-twitter-square ci" aria-hidden="true"></i>
+      <i class="fa fa-facebook-square ci" aria-hidden="true"></i>
+      <i class="fa fa-google-plus-square ci" aria-hidden="true"></i></div>
+      </div>
+    </div>
+
+    <div class="d-none d-md-block col-lg-4 col-md-4">
+    </div>
+
+  <!--- language  and search Selection -->
+    <div class="d-none d-md-block col-md-4">
+        <div class="container">
+          <div class="row">
+            <div class="dropdown">
+            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Select Currency<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">US Dollars</a></li>
+                <li><a href="#">Euros</a></li>
+                <li><a href="#">Pounds</a></li>
+                <li><a href="#">Canadian Dollars</a></li>
+                <li><a href="#">Australian Dollars</a></li>
+                <li><a href="#">Japenese Yen</a></li>
+                <li><a href="#">Indian rupees></li>
+              </ul>
+            </div>
+        <form class="form-inline fm">
+          <input class="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search Coins" aria-label="Search">
+          <button class="btn btn-outline-secondary my-2 my-sm-0 btn-sm" type="submit">Search</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Display ison, Small form and currency Screen -->
+<div class="row">
+  <div class="d-sm-block d-md-none">
+    <div class="container">
+      <div class="row">
+      <p class="ci1 text-secondary">  Connect With Us </p>
+      <i class="fa fa-telegram cii" aria-hidden="true"></i>
+      <i class="fa fa-twitter-square cii" aria-hidden="true"></i>
+      <i class="fa fa-facebook-square cii" aria-hidden="true"></i>
+      <i class="fa fa-google-plus-square cii" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-sm-block d-md-none">
+  <div class="container">
+    <div class="marginv"></div>
+    <div class="row">
+      <div class="dropdown">
+      <button class="btn btn-outline-secondary btn-sm dropdown-toggle cusb1" type="button" data-toggle="dropdown"> Select Currenct  <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+          <li><a href="#">US Dollars</a></li>
+          <li><a href="#">Euros</a></li>
+          <li><a href="#">Pounds</a></li>
+          <li><a href="#">Canadian Dollars</a></li>
+          <li><a href="#">Australian Dollars</a></li>
+          <li><a href="#">Japenese Yen</a></li>
+          <li><a href="#">Indian rupees></li>
+        </ul>
+      </div>
+
+      <form class="form-inline fm">
+        <input class="form-control mr-sm-2 form-control-sm cus-fm-c" type="search" placeholder="Search Coins" aria-label="Search">
+        <button class="btn btn-outline-secondary  btn-sm" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </div>
+  </div>
+
+
+</div>
+
+
+<!-- Ticker logic for md to large screen -->
+<div class="container tichead">
+    <div class="row">
+      <div class="d-none d-md-block">
+        <table class="table table-hover table-bordered" text-aling="center">
+          <thead class="ctclass">
+            <tr>
+              <th scope="col ctclass11">#</th>
+              <th scope="col ctclass11">Icon</th>
+              <th scope="col ctclass11">Crypto Name</th>
+              <th scope="col ctclass11">Price</th>
+              <th scope="col ctclass11">Average Price</th>
+              <th scope="col ctclass11">%24hr Change</th>
+              <th scope="col ctclass11">Market Cap</th>
+              <th scope="col ctclass11">Available Supply</th>
+            </tr>
+          </thead>
+          <% for ( var i= 0; i<500; i++ ) { %>
+            <tbody>
+              <tr id="cryptotable<%=i%>" class="ctable">
+                <th> <%= i+1 %>  </th>
+                <% if(i == 3)  { %>
+                  <th> <img src="https://coincap.io/images/coins/bitcoin-cash.png" height="25" width="25"> </th>
+                  <%  }  else if(i==15) { %>
+                  <th> <img src="https://coincap.io/images/coins/Binance-Coin.png" height="25" width="25"> </th>
+                  <%    } else if(i==16 ) { %>
+                  <th> <img src="https://coincap.io/images/coins/Ethereum-Classic.png" height="25" width="25"> </th>
+                  <%  }  else if (i==23){ %>
+                  <th> <img src="https://coincap.io/images/coins/bitcoin-gold.png" height="25" width="25"> </th>
+                  <%  }  else if(i==24) { %>
+                  <th> <img src="https://d1ic4altzx8ueg.cloudfront.net/finder-au/wp-uploads/2017/12/nano-raiblocks-250x250.png"height="25" width="25"> </th>
+                  <%  } else {  %>
+                  <th> <img src="https://coincap.io/images/coins/<%=result[i]["long"]%>.png" height="25" width="25"> </th>
+                  <% } %>
+                  <th class="cryptoName"><%= result[i]["long"] %>(<span class="cryptosname"><%=result[i]["short"]%></span>)</th>
+                  <th>$<span class="cryptoPr" id="price<%=i%>"><%= cPrice[i] %></span></th>
+                  <th>$<span class="cryptoPr" id="price<%=i%>"><%= cryptoAPrice[i] %></span></th>
+                  <th> <span class="cryptoPerc" id="perc<%=i%>"><%= result[i]["perc"] %>% </th>
+                  <th>$<span class="cryptoPerc" id="perc<%=i%>"><%= marketcap[i] %>B </th>
+                  <th> <span class="cryptoPerc" id="perc<%=i%>"><%= result[i]["supply"]  %> </th>
+                </tr>
+              </tbody>
+            <%} %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Ticker logic for small screen -->
+<div class="container tichead">
+    <div class="row">
+      <div class="d-sm-block d-md-none">
+        <table class="table table-hover table-bordered" text-aling="center">
+          <thead class="ctclass1">
+            <tr>
+                <th scope="col">#</th>
+              <th scope="col">Icon</th>
+              <th scope="col">Crypto Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">%24hr Change</th>
+            </tr>
+          </thead>
+          <% for ( var i= 0; i<500; i++ ) { %>
+            <tbody>
+              <tr id="cryptotabler1<%=i%>" class="ctable1">
+                <th> <%= i + 1 %></th>
+                <% if(i == 3)  { %>
+                  <th> <img src="https://coincap.io/images/coins/bitcoin-cash.png" height="15" width="15"> </th>
+                  <%  }  else if(i==15) { %>
+                  <th> <img src="https://coincap.io/images/coins/Binance-Coin.png" height="15" width="15"> </th>
+                  <%    } else if(i==16 ) { %>
+                  <th> <img src="https://coincap.io/images/coins/Ethereum-Classic.png" height="15" width="15"> </th>
+                  <%  }  else if (i==23){ %>
+                  <th> <img src="https://coincap.io/images/coins/bitcoin-gold.png" height="15" width="15"> </th>
+                  <%  }  else if(i==24) { %>
+                  <th> <img src="https://d1ic4altzx8ueg.cloudfront.net/finder-au/wp-uploads/2017/12/nano-raiblocks-250x250.png"height="15" width="15"> </th>
+                  <%  } else {  %>
+                  <th> <img src="https://coincap.io/images/coins/<%=result[i]["long"]%>.png" height="15" width="15"> </th>
+                  <% } %>
+                  <th class="cryptoName1"><%= result[i]["long"] %>(<span class="cryptosname1"><%=result[i]["short"]%></span>)</th>
+                  <th>$<span class="cryptoPr1" id="pricer1<%=i%>"><%= cPrice[i] %></span></th>
+                  <th> <span class="cryptoPerc1" id="percr1<%=i%>"><%= result[i]["perc"] %>% </th>
+                </tr>
+              </tbody>
+            <%} %>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<script id="cid0020000183909890785" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"cryptogits","arch":"js","styles":{"a":"0084ef","b":100,"c":"FFFFFF","d":"FFFFFF","k":"0084ef","l":"0084ef","m":"0084ef","n":"FFFFFF","p":"10","q":"0084ef","r":100,"t":0,"ab":false,"usricon":0,"pos":"br","cv":1,"cvbg":"3366ff","cvw":200,"cvh":30,"surl":0,"ticker":1,"fwtickm":1}}
+</script>
+</body>
+<script type="text/javascript">
+
+//storing the length of the crypto currency here
+  var cryptoSName =  document.getElementsByClassName("cryptosname");
+  var cryptoSName1 =  document.getElementsByClassName("cryptosname1");
+  var lengthC = cryptoSName.length;
+  var lengthC1 = cryptoSName1.length;
+
+
+
+
+//making socket connection
+    var socket = io.connect('https://coincap.io');
+    socket.on('trades', function (tradeMsg) {
+
+        var crypto = tradeMsg.coin
+       for (let i=0; i<500; i++) {
+         var compare = cryptoSName[i].innerHTML
+          if (compare == crypto) {
+            var oldPrice = document.getElementById('price' + i).innerHTML
+            document.getElementById('price' + i).innerHTML= (tradeMsg.message.msg.price.toFixed(4));;
+            document.getElementById('perc' + i).innerHTML= tradeMsg.message.msg.perc + "%";
+            document.getElementById('pricer1' + i).innerHTML= (tradeMsg.message.msg.price.toFixed(4));;
+            document.getElementById('percr1' + i).innerHTML= tradeMsg.message.msg.perc + "%";
+            var newPrice = tradeMsg.message.msg.price
+
+            if (newPrice<oldPrice) {
+              document.getElementById("cryptotable" + i).style.background = "#ffe5e5";
+              document.getElementById("price" + i).style.color = "#ff6666";
+              document.getElementById("perc" + i).style.color = "#ff6666";
+              document.getElementById("cryptotabler1" + i).style.background = "#ffe5e5";
+              document.getElementById("percr1" + i).style.color = "#ff6666";
+              document.getElementById("pricer1" + i).style.color = "#ff6666";
+            }
+            else if (newPrice>oldPrice) {
+                document.getElementById("cryptotable" + i).style.background = "#B4EEB4";
+                document.getElementById("price" + i).style.color = "#66CD00	";
+                document.getElementById("perc" + i).style.color = "#66CD00	";
+                document.getElementById("cryptotabler1" + i).style.background = "#B4EEB4";
+                document.getElementById("pricer1" + i).style.color = "#66CD00	";
+                document.getElementById("percr1" + i).style.color = "#66CD00	";
+            }
+          }
+          setTimeout(function() {
+              document.getElementById("cryptotable" + i).style.background = "white"
+              document.getElementById("cryptotabler1" + i).style.background = "white"
+          }, 1500);
+        }
+
+    });
+
+
+</script>
+
+<% include partials/footer %>
