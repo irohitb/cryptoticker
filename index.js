@@ -66,6 +66,6 @@ app.get("/", function (req, res) {
 });
 
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, function() {
 console.log("Server have started");
 })
