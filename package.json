@@ -4,7 +4,7 @@
   "description": "Real Time Ticker ",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "node app.js"
   },
   "author": "Rohit",
   "license": "ISC",
