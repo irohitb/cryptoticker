@@ -7,13 +7,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/views/src'));
 app.set('view engine', 'ejs');
 
-
+setInterval(function() {
+    request.get("http://www.knicx.com");
+}, 300000)
 //to get data from multiple API
 var coinFront = "http://coincap.io/front"
 var globalInfo = "https://api.coinmarketcap.com/v1/global/"
 var result;
 var globalD;
 
+setInterval(function() {
   function getCoinFrontData(error, response, body) {
     if (!error && response.statusCode == 200) {
           result = JSON.parse(body)
@@ -28,6 +31,7 @@ var globalD;
 
 request(coinFront, getCoinFrontData);
 request(globalInfo, getGlobalData);
+},9000)
 
 app.get("/", function (req, res) {
       var marketcap = [];
@@ -62,6 +66,6 @@ app.get("/", function (req, res) {
 });
 
 
-app.listen(process.env.PORT, function() {
+app.listen(3000, function() {
 console.log("Server have started");
 })
