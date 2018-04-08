@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/views/src'));
 app.set('view engine', 'ejs');
 
+//siteMapURL
+
 setInterval(function() {
     request.get("http://www.knicx.com");
 }, 300000)
@@ -64,7 +66,10 @@ app.get("/", function (req, res) {
 
       res.render("index.ejs", {result:result, marketcap:marketcap, cPrice:cPrice, cryptoAPrice:cryptoAPrice, globalD:globalD, globalDP:globalDP, globalV:globalV, v24:v24 });
 });
-//
+//SiteMap.xml
+app.get("/sitemap.xml", function(req,res){
+  res.render("sitemap.xml")
+})
 
 app.listen(process.env.PORT, function() {
 console.log("Server have started");
