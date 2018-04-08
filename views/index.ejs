@@ -90,7 +90,7 @@
               </ul>
             </div>
         <form class="form-inline fm">
-          <input class="form-control mr-sm-2 form-control-sm" type="search" placeholder="Search Coins" aria-label="Search" id="cryptS">
+          <input class="form-control mr-sm-2 form-control-sm cryptos" type="search" placeholder="Search Coins" aria-label="Search">
           <button class="btn btn-outline-secondary my-2 my-sm-0 btn-sm" type="submit">Search</button>
         </form>
         </div>
@@ -136,7 +136,7 @@
       </div>
 
       <form class="form-inline fm">
-        <input class="form-control mr-sm-2 form-control-sm cus-fm-c" type="search" placeholder="Search Coins" aria-label="Search">
+        <input class="form-control mr-sm-2 form-control-sm cus-fm-c cryptos" type="search" placeholder="Search Coins" aria-label="Search">
         <button class="btn btn-outline-secondary  btn-sm" type="submit">Search</button>
       </form>
     </div>
@@ -256,7 +256,7 @@
 
 
 //making socket connection
-   document.getElementById("cryptS").addEventListener("keyup", function(event){
+   document.getElementsByClassName("cryptS").addEventListener("keyup", function(event){
     var filter = $(this).val(), count = 0;
   var schName =  document.querySelectorAll(".ctable1")
       $("tr").each(function() {
