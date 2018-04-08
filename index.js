@@ -64,7 +64,7 @@ app.get("/", function (req, res) {
 
       res.render("index.ejs", {result:result, marketcap:marketcap, cPrice:cPrice, cryptoAPrice:cryptoAPrice, globalD:globalD, globalDP:globalDP, globalV:globalV, v24:v24 });
 });
-
+//process.env.PORT
 
 app.listen(process.env.PORT, function() {
 console.log("Server have started");
