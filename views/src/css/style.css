@@ -18,7 +18,7 @@ body {
   color: white !important; }
 
 th {
-  text-align: center; }
+  text-align: left; }
 
 .l-t {
   margin-left: 10px;
@@ -142,5 +142,6 @@ i {
 .marginv {
   margin-top: 10px; }
 
-.container a {
-  text-decoration: none !important; }
+.container i {
+  text-decoration: none !important;
+  color: silver; }
