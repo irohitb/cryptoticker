@@ -11,13 +11,13 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
-    "ejs": "^2.5.8",
-    "express": "^4.16.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "method-override": "^2.3.10",
     "request": "^2.85.0",
-    "socket.io": "^2.1.0",
+    "socket.io": "^2.2.0",
     "socket.io-client": "^2.1.0"
   },
   "devDependencies": {
