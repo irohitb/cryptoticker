@@ -21,7 +21,7 @@
     "socket.io-client": "^2.1.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.2.1"
   }
